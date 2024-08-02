@@ -1,13 +1,12 @@
-//your JS code here. If required.
 function moveToNext(current, direction) {
     if (current.value.length == current.maxLength) {
         let nextElement = current.nextElementSibling;
-        if (nextElement) {
+        if (nextElement && nextElement.classList.contains('code')) {
             nextElement.focus();
         }
     } else if (current.value.length == 0 && direction === 'prev') {
         let prevElement = current.previousElementSibling;
-        if (prevElement) {
+        if (prevElement && prevElement.classList.contains('code')) {
             prevElement.focus();
         }
     }
@@ -18,7 +17,7 @@ function moveToPrev(event) {
         let current = event.target;
         if (current.value.length == 0) {
             let prevElement = current.previousElementSibling;
-            if (prevElement) {
+            if (prevElement && prevElement.classList.contains('code')) {
                 prevElement.focus();
             }
         }
@@ -36,5 +35,8 @@ document.querySelectorAll('.code').forEach((input, index, inputs) => {
     input.addEventListener('keydown', (e) => {
         moveToPrev(e);
     });
-});
 
+    input.addEventListener('focus', (e) => {
+        e.target.select();
+    });
+});
