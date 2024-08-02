@@ -1,20 +1,16 @@
-function moveToNext(current, direction) {
+function moveToNext() {
+    let current = document.activeElement;
     if (current.value.length == current.maxLength) {
         let nextElement = current.nextElementSibling;
         if (nextElement && nextElement.classList.contains('code')) {
             nextElement.focus();
-        }
-    } else if (current.value.length == 0 && direction === 'prev') {
-        let prevElement = current.previousElementSibling;
-        if (prevElement && prevElement.classList.contains('code')) {
-            prevElement.focus();
         }
     }
 }
 
 function moveToPrev(event) {
     if (event.key === 'Backspace') {
-        let current = event.target;
+        let current = document.activeElement;
         if (current.value.length == 0) {
             let prevElement = current.previousElementSibling;
             if (prevElement && prevElement.classList.contains('code')) {
@@ -24,12 +20,12 @@ function moveToPrev(event) {
     }
 }
 
-document.querySelectorAll('.code').forEach((input, index, inputs) => {
+document.querySelectorAll('.code').forEach((input) => {
     input.addEventListener('input', (e) => {
         if (e.target.value.length > 1) {
             e.target.value = e.target.value.slice(0, 1);
         }
-        moveToNext(e.target, 'next');
+        moveToNext();
     });
 
     input.addEventListener('keydown', (e) => {
