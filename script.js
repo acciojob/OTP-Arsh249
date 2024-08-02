@@ -20,7 +20,7 @@ function moveToPrev(event) {
     }
 }
 
-document.querySelectorAll('.code').forEach((input) => {
+document.querySelectorAll('.code').forEach((input, index) => {
     input.addEventListener('input', (e) => {
         if (e.target.value.length > 1) {
             e.target.value = e.target.value.slice(0, 1);
@@ -35,4 +35,9 @@ document.querySelectorAll('.code').forEach((input) => {
     input.addEventListener('focus', (e) => {
         e.target.select();
     });
+
+    // Focus the first input on page load
+    if (index === 0) {
+        input.focus();
+    }
 });
