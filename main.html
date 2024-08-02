@@ -8,6 +8,18 @@
 
 <body>
 	<!-- the entire body must be written by student -->
+	 <div class="container">
+        <h1 id="verification_heading">OTP Verification</h1>
+        <p id="verification_subtext">Please enter the 6-digit verification code sent to your email.</p>
+        <div class="code-container">
+            <input type="text" class="code" maxlength="1" oninput="moveToNext(this, 'next')">
+            <input type="text" class="code" maxlength="1" oninput="moveToNext(this, 'next')">
+            <input type="text" class="code" maxlength="1" oninput="moveToNext(this, 'next')">
+            <input type="text" class="code" maxlength="1" oninput="moveToNext(this, 'next')">
+            <input type="text" class="code" maxlength="1" oninput="moveToNext(this, 'next')">
+            <input type="text" class="code" maxlength="1" oninput="moveToNext(this, 'prev')" onkeydown="moveToPrev(event)">
+        </div>
+    </div>
     <script type="text/javascript" src="./script.js">
 </script>
 
